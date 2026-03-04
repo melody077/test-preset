@@ -116,7 +116,6 @@ function openModal() {
 
         <div class="pc-actions">
           <button id="pc-btnCopy" disabled>📋 선택 항목 복사</button>
-          <button id="pc-btnMove" disabled>➡️ 선택 항목 이동</button>
           <button id="pc-btnClose2">닫기</button>
         </div>
         <div id="pc-toast"></div>
@@ -151,7 +150,6 @@ function initModalLogic(root, presets) {
     const srcList   = $('#pc-srcList');
     const tgtList   = $('#pc-tgtList');
     const btnCopy   = $('#pc-btnCopy');
-    const btnMove   = $('#pc-btnMove');
     const btnSelAll = $('#pc-btnSelAll');
     const btnSelNone= $('#pc-btnSelNone');
 
@@ -249,7 +247,6 @@ function initModalLogic(root, presets) {
         const hasSlot = insertPos >= 0;
         const ok = hasSel && both && diff && hasSlot;
         btnCopy.disabled = !ok;
-        btnMove.disabled = !ok;
     }
 
     // ── Copy / Move ──────────────────────────────
@@ -357,7 +354,6 @@ function initModalLogic(root, presets) {
         renderSource(); updateBtns();
     });
     btnCopy.addEventListener('click', () => execute(false));
-    btnMove.addEventListener('click', () => execute(true));
 }
 
 // ── Extension panel in SillyTavern settings ──────────
