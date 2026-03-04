@@ -8,5 +8,5 @@
     "author": "User",
     "version": "1.0.0",
     "homePage": "https://github.com/SillyTavern/SillyTavern",
-    "description": "Copy preset items from one preset to another"
+    "description": "Copy/move preset items between presets in a separate popup window"
 }
