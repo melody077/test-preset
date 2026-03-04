@@ -1,0 +1,243 @@
+/* Preset Copier Extension Styles */
+
+#pc-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    min-width: 700px;
+}
+
+/* Header - preset type selector */
+#pc-container .pc-header {
+    padding: 10px;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 5px;
+    background-color: var(--SmartThemeBlurTintColor);
+}
+
+#pc-container .pc-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#pc-container .pc-row label {
+    min-width: 100px;
+    font-weight: bold;
+    color: var(--SmartThemeBodyColor);
+}
+
+/* Panels - source and target side by side */
+#pc-container .pc-panels {
+    display: flex;
+    gap: 15px;
+}
+
+#pc-container .pc-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 5px;
+    background-color: var(--SmartThemeBlurTintColor);
+    min-width: 0;
+}
+
+#pc-container .pc-panel-title {
+    font-weight: bold;
+    font-size: 1em;
+    color: var(--SmartThemeBodyColor);
+    margin-bottom: 2px;
+}
+
+#pc-container select {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid var(--SmartThemeBorderColor);
+    background-color: var(--SmartThemeBlurTintColor);
+    color: var(--SmartThemeBodyColor);
+}
+
+/* Field list */
+#pc-container .pc-field-list {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#pc-container .pc-placeholder {
+    padding: 20px;
+    text-align: center;
+    color: var(--SmartThemeQuoteColor);
+    font-style: italic;
+}
+
+/* Group title (for OpenAI: settings vs prompts) */
+#pc-container .pc-group-title {
+    padding: 6px 10px;
+    background-color: rgba(100, 100, 200, 0.15);
+    font-weight: bold;
+    font-size: 0.85em;
+    color: var(--SmartThemeBodyColor);
+    border-bottom: 1px solid var(--SmartThemeBorderColor);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Field item row */
+#pc-container .pc-field-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 8px;
+    border-bottom: 1px solid var(--SmartThemeBorderColor);
+    min-width: 0;
+    cursor: default;
+}
+
+#pc-container .pc-field-item:last-child {
+    border-bottom: none;
+}
+
+#pc-container .pc-field-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+#pc-container .pc-field-check,
+#pc-container .pc-prompt-check {
+    flex-shrink: 0;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+#pc-container .pc-field-key {
+    flex: 1;
+    font-weight: 500;
+    color: var(--SmartThemeBodyColor);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+#pc-container .pc-field-value {
+    flex-shrink: 0;
+    max-width: 150px;
+    font-size: 0.85em;
+    color: var(--SmartThemeQuoteColor);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#pc-container .pc-prompt-id {
+    font-family: monospace;
+    font-size: 0.8em;
+}
+
+#pc-container .pc-prompt-idx {
+    min-width: 28px;
+    font-weight: bold;
+    color: var(--SmartThemeQuoteColor);
+    flex-shrink: 0;
+}
+
+/* Target item styling (slightly muted) */
+#pc-container .pc-target-item {
+    opacity: 0.85;
+    cursor: default;
+}
+
+/* Insert slot (for OpenAI prompt insertion position) */
+#pc-container .pc-insert-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.82em;
+    color: var(--SmartThemeQuoteColor);
+    border-bottom: 1px dashed var(--SmartThemeBorderColor);
+    transition: all 0.15s ease;
+}
+
+#pc-container .pc-insert-slot:hover {
+    background-color: rgba(100, 200, 100, 0.15);
+    color: var(--SmartThemeBodyColor);
+}
+
+#pc-container .pc-insert-slot.selected {
+    background-color: rgba(100, 200, 100, 0.3);
+    color: var(--SmartThemeBodyColor);
+    font-weight: bold;
+    border-color: rgba(100, 200, 100, 0.5);
+}
+
+#pc-container .pc-slot-icon {
+    font-size: 0.9em;
+}
+
+/* Select all / none buttons */
+#pc-container .pc-select-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 2px;
+}
+
+#pc-container .pc-select-actions .menu_button {
+    padding: 4px 10px;
+    font-size: 0.82em;
+}
+
+/* Action buttons */
+#pc-container .pc-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+#pc-container .pc-actions .menu_button {
+    padding: 8px 20px;
+    font-size: 0.95em;
+}
+
+#pc-container .pc-actions .menu_button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ─── Mobile responsive ─── */
+@media (max-width: 768px) {
+    #pc-container {
+        min-width: unset;
+        width: 100%;
+    }
+
+    #pc-container .pc-panels {
+        flex-direction: column;
+    }
+
+    #pc-container .pc-field-list {
+        max-height: 200px;
+    }
+
+    #pc-container .pc-actions {
+        flex-direction: column;
+    }
+
+    #pc-container .pc-actions .menu_button {
+        width: 100%;
+        justify-content: center;
+    }
+}

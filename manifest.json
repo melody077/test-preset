@@ -1,0 +1,12 @@
+{
+    "display_name": "Preset Copier",
+    "loading_order": 101,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "User",
+    "version": "1.0.0",
+    "homePage": "https://github.com/SillyTavern/SillyTavern",
+    "description": "Copy preset items from one preset to another"
+}
