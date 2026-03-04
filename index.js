@@ -100,10 +100,6 @@ function openModal() {
           <section class="pc-panel">
             <h2>📤 소스 프리셋 (A)</h2>
             <select id="pc-srcSelect"><option value="">-- 선택 --</option>${opts}</select>
-            <div class="pc-toolbar">
-              <button id="pc-btnSelAll" class="pc-small" disabled>전체 선택</button>
-              <button id="pc-btnSelNone" class="pc-small" disabled>선택 해제</button>
-            </div>
             <div class="pc-list" id="pc-srcList"><p class="pc-empty">프리셋을 선택하세요</p></div>
           </section>
 
@@ -150,8 +146,6 @@ function initModalLogic(root, presets) {
     const srcList   = $('#pc-srcList');
     const tgtList   = $('#pc-tgtList');
     const btnCopy   = $('#pc-btnCopy');
-    const btnSelAll = $('#pc-btnSelAll');
-    const btnSelNone= $('#pc-btnSelNone');
 
     // close buttons
     $('#pc-close').addEventListener('click', closeModal);
@@ -168,8 +162,6 @@ function initModalLogic(root, presets) {
 
     // ── Render source ────────────────────────────
     function renderSource() {
-        btnSelAll.disabled = !srcPreset;
-        btnSelNone.disabled = !srcPreset;
         if (!srcPreset) { srcList.innerHTML = '<p class="pc-empty">프리셋을 선택하세요</p>'; return; }
 
         const ordered = getOrderedPrompts(srcPreset);
@@ -343,15 +335,6 @@ function initModalLogic(root, presets) {
         tgtPreset = tgtName ? JSON.parse(JSON.stringify(presets[tgtName])) : null;
         insertPos = -1;
         renderTarget(); updateBtns();
-    });
-    btnSelAll.addEventListener('click', () => {
-        if (!srcPreset) return;
-        getOrderedPrompts(srcPreset).forEach((_, i) => selectedPrompts.add(i));
-        renderSource(); updateBtns();
-    });
-    btnSelNone.addEventListener('click', () => {
-        selectedPrompts.clear();
-        renderSource(); updateBtns();
     });
     btnCopy.addEventListener('click', () => execute(false));
 }
