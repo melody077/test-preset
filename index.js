@@ -171,9 +171,8 @@ function initModalLogic(root, presets) {
             ordered.forEach((e, i) => {
                 const nm = e.prompt.name || e.identifier || 'Unnamed';
                 const mk = e.prompt.marker ? '📍 ' : '';
-                const chk = selectedPrompts.has(i) ? 'checked' : '';
-                h += `<div class="pc-item">
-                  <input type="checkbox" class="pc-pchk" data-i="${i}" ${chk}>
+                const sel = selectedPrompts.has(i) ? ' pc-selected' : '';
+                h += `<div class="pc-item pc-selectable${sel}" data-i="${i}">
                   <span class="pc-key">${mk}${esc(nm)}</span>
                   <span class="pc-val pc-pid">[${esc(e.identifier)}]</span>
                   <span class="pc-val">${e.enabled ? '✅' : '❌'}</span>
@@ -182,10 +181,16 @@ function initModalLogic(root, presets) {
         }
         srcList.innerHTML = h || '<p class="pc-empty">프롬프트 없음</p>';
 
-        srcList.querySelectorAll('.pc-pchk').forEach(cb => {
-            cb.addEventListener('change', () => {
-                const idx = parseInt(cb.dataset.i);
-                cb.checked ? selectedPrompts.add(idx) : selectedPrompts.delete(idx);
+        srcList.querySelectorAll('.pc-selectable').forEach(el => {
+            el.addEventListener('click', () => {
+                const idx = parseInt(el.dataset.i);
+                if (selectedPrompts.has(idx)) {
+                    selectedPrompts.delete(idx);
+                    el.classList.remove('pc-selected');
+                } else {
+                    selectedPrompts.add(idx);
+                    el.classList.add('pc-selected');
+                }
                 updateBtns();
             });
         });

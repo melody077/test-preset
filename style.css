@@ -154,12 +154,17 @@
     transition: background .1s;
 }
 .pc-item:hover { background: rgba(255, 255, 255, .04); }
-.pc-item input[type=checkbox] {
-    flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+.pc-selectable {
     cursor: pointer;
-    accent-color: #4cc9f0;
+    user-select: none;
+    -webkit-user-select: none;
+    border-left: 3px solid transparent;
+    transition: background .1s, border-color .1s;
+}
+.pc-selectable:hover { background: rgba(76, 201, 240, .08); }
+.pc-selected {
+    background: rgba(76, 201, 240, .18) !important;
+    border-left-color: #4cc9f0;
 }
 .pc-key {
     flex: 1;
